@@ -12,5 +12,26 @@ public class TripManagerTest {
 	assertNotNull(t);
 	}
 	
+	@Test
+	public void testIfTripHasName() {
+	String name = "wycieczka";
+	Trip tw = new Trip(name);
+	assertNotNull(tw);
+	}
+	
+	@Test
+	public void testIfTripHasDescription() {
+	String description = "opis";
+	Trip tw = new Trip(description);
+	assertNotNull(tw);
+	}
+	
+	@Test
+	public void testIfTripHasNameAndDescription() {
+	String name = "wycieczka";
+	String description = "opis";
+	Trip tw = new Trip(name, description);
+	assertNotNull(tw);
+	}
 	
 }
