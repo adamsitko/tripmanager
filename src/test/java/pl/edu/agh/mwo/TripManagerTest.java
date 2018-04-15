@@ -111,7 +111,17 @@ public class TripManagerTest {
 	TripManager tm = new TripManager();
 	tm.addTrip(a);
 	tm.addTrip(b);
-	assertNotEquals(tm.findTrip("Bochnia").get(0), a);
+	assertTrue(tm.findTrip("Bochnia").isEmpty());
+	}
+	
+	@Test
+	public void testFindTripinTripManagerByDescription() {
+	Trip a = new Trip("Wieliczka", "Kopalnia");
+	Trip b = new Trip("Zakopane", "Rysy");
+	TripManager tm = new TripManager();
+	tm.addTrip(a);
+	tm.addTrip(b);
+	assertEquals(tm.findTrip("Rysy").get(0), b);
 	}
 	
 }
