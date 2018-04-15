@@ -22,16 +22,36 @@ public class TripManagerTest {
 	@Test
 	public void testIfTripHasDescription() {
 	String description = "opis";
-	Trip tw = new Trip(description);
-	assertNotNull(tw);
+	Trip to = new Trip(description);
+	assertNotNull(to);
 	}
 	
 	@Test
 	public void testIfTripHasNameAndDescription() {
 	String name = "wycieczka";
 	String description = "opis";
-	Trip tw = new Trip(name, description);
-	assertNotNull(tw);
+	Trip tow = new Trip(name, description);
+	assertNotNull(tow);
+	}
+	
+	@Test
+	public void testTripAddPhotos() {
+	String name = "wycieczka";
+	String description = "opis";
+	Trip t = new Trip(name, description);
+	Photo photo = new Photo();
+	t.addPhoto(photo);	
+	assertNotNull(t);
+	}
+	
+	@Test
+	public void testTripGetPhotos() {
+	String name = "wycieczka";
+	String description = "opis";
+	Trip t = new Trip(name, description);
+	Photo photo = new Photo();
+	t.addPhoto(photo);		
+	assertTrue(t.getPhotos().contains(photo));
 	}
 	
 }
