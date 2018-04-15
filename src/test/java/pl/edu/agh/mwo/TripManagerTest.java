@@ -54,4 +54,17 @@ public class TripManagerTest {
 	assertTrue(t.getPhotos().contains(photo));
 	}
 	
+	@Test
+	public void testPhotoWithComment() {
+	String comment = "wycieczka";
+	Photo photo = new Photo(comment);
+	assertNotNull(photo);
+	}
+	
+	@Test
+	public void testPhotoWithoutComment() {
+	Photo photo = new Photo();
+	assertNotNull(photo);
+	}
+	
 }
