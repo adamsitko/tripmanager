@@ -67,4 +67,51 @@ public class TripManagerTest {
 	assertNotNull(photo);
 	}
 	
+	@Test
+	public void testAddTripToTripManager() {
+	Trip t = new Trip();
+	TripManager tm = new TripManager();
+	tm.addTrip(t);
+	assertNotNull(tm);
+	}
+	
+	@Test
+	public void testGetTripsFromTripManager() {
+	Trip t = new Trip();
+	TripManager tm = new TripManager();
+	tm.addTrip(t);
+	assertTrue(tm.getTrips().contains(t));
+	}
+	
+	@Test
+	public void testRemoveTripFromTripManager() {
+	Trip a = new Trip();
+	Trip b = new Trip();
+	TripManager tm = new TripManager();
+	tm.addTrip(a);
+	tm.addTrip(b);
+	tm.removeTrip(1);
+	assertFalse(tm.getTrips().contains(b));
+	}
+	
+	@Test
+	public void testFindTripinTripManager() {
+	Trip a = new Trip("Wieliczka", "Kopalnia");
+	Trip b = new Trip("Zakopane", "Rysy");
+	TripManager tm = new TripManager();
+	tm.addTrip(a);
+	tm.addTrip(b);
+	assertEquals(tm.findTrip("Wieliczka").get(0), a);
+	}
+	
+	@Test
+	public void testFindTripinTripManagerFailure() {
+	Trip a = new Trip("Wieliczka", "Kopalnia");
+	Trip b = new Trip("Zakopane", "Rysy");
+	TripManager tm = new TripManager();
+	tm.addTrip(a);
+	tm.addTrip(b);
+	assertNotEquals(tm.findTrip("Bochnia").get(0), a);
+	}
+	
 }
